@@ -1,0 +1,26 @@
+GET  http://localhost:8000/book
+
+###
+GET  http://localhost:8000/book/2
+###
+
+POST http://localhost:8000/book  HTTP/1.1
+content-type: application/json
+
+{
+    "Name" : "john",
+    "Author": "mike",
+    "Publication": "china"
+}
+###
+PUT http://localhost:8000/book/2  HTTP/1.1
+content-type: application/json
+
+{
+    "Name" : "asdasd",
+    "Author": "mike",
+    "Publication": "china"
+}
+###
+DELETE  http://localhost:8000/book/1  HTTP/1.1
+content-type: application/json

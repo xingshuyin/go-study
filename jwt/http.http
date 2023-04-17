@@ -1,0 +1,9 @@
+POST http://127.0.0.1:8000/users/signup HTTP/1.1
+content-type: application/json
+
+{
+    "Name": "last_asdasd",
+    "Password": "123456",
+    "email": "15631174345@163.com",
+    "User_type": "ADMIN"
+}
