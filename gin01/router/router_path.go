@@ -2,6 +2,7 @@ package router
 
 import (
 	"fmt"
+	models "project/model"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -56,7 +57,9 @@ func Path(e *gin.RouterGroup, base_url string, model interface{}) {
 	e.GET(fmt.Sprintf("/%s/", base_url), middleware, func(ctx *gin.Context) {
 		// query := ctx.Request.URL.Query()
 		// fmt.Println(query)
-		ctx.JSONP(200, []map[string]interface{}{{"id": "1"}, {"id": "2"}})
+		var items []models.User
+		models.DB.First(&items)
+		ctx.JSONP(200, items)
 	})
 	e.GET(fmt.Sprintf("/%s/:id/", base_url), middleware, func(ctx *gin.Context) {
 		id, ok := ctx.Params.Get("id")

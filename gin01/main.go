@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	models "project/model"
 	"project/router"
 
 	"github.com/gin-gonic/gin"
@@ -17,6 +18,7 @@ func middleware_group(ctx *gin.Context) {
 
 func main() {
 	e := gin.Default()
+	models.Init()
 	e.Static("./static", "./static") //配置静态目录
 	e.Use(middleware_global)
 	admin := e.Group("/api")
