@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	models "project/model"
-	"project/router"
-
 	"github.com/gin-gonic/gin"
+	models "project/models"
+	"project/routers"
+	_ "project/tools"
 )
 
 func middleware_global(ctx *gin.Context) {
@@ -23,10 +23,11 @@ func main() {
 	e.Use(middleware_global)
 	admin := e.Group("/api")
 	admin.Use(middleware_group) // 使用全局中间件
-	router.Login(admin)
-	router.Upload(admin)
-	router.Path(admin, "user", map[string]string{})
-	router.Path(admin, "menu", map[string]string{})
+	routers.Login(admin)
+	routers.Upload(admin)
+	routers.Path(admin, "user", models.User{})
+	routers.Path(admin, "menu", models.Menu{})
+	// router.Path(admin, "menu", map[string]string{})
 	// fmt.Println(e.Routes()) //获取所有路由
 	e.Run()
 }

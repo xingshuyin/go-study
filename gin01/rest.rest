@@ -1,22 +1,50 @@
 ###查询
-GET http://127.0.0.1:8080/api/user/?a=aaa&b=asd&a=a2 HTTP/1.1
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjgxNzg5NjU2fQ.TQtoblP-op28IZ7sNtXANt4a5TrBZBdkpmePUfCouVE
+GET http://127.0.0.1:8080/api/user/?Name=zcc&page=1&limit=2 HTTP/1.1
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjg2MzM4ODk2fQ.-CD8qe8MyXzo4w5Ob3FgRV0cBDHjQyg4c-j2Pl2Ynb0
+
+
+
+###获取单个
+GET http://127.0.0.1:8080/api/user/1/ HTTP/1.1
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjg2MzM4ODk2fQ.-CD8qe8MyXzo4w5Ob3FgRV0cBDHjQyg4c-j2Pl2Ynb0
 
 
 ###更新
-PUT http://127.0.0.1:8080/api/user/1/  HTTP/1.1
+PUT http://127.0.0.1:8080/api/user/10/  HTTP/1.1
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjgxNzg1NzUyfQ.CVDulGUYEn2vAAmDVb0QC0fMNHL2Ox1vGheHpH8G86c
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjg2MzM4ODk2fQ.-CD8qe8MyXzo4w5Ob3FgRV0cBDHjQyg4c-j2Pl2Ynb0
 
 {
-    "a": "aaaaa"
+    "name": "zcpp63636"
+}
+
+###创建
+POST  http://127.0.0.1:8080/api/user/  HTTP/1.1
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjg2MzM4ODk2fQ.-CD8qe8MyXzo4w5Ob3FgRV0cBDHjQyg4c-j2Pl2Ynb0
+
+{
+    "name": "zcc",
+    "age": 26,
+    "username": "156363s133773345"
+}
+
+
+###创建
+POST  http://127.0.0.1:8080/api/menu/  HTTP/1.1
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6MSwiTmFtZSI6IjE1NjMxMTc3MzQ1IiwiZXhwIjoxNjg2MzM4ODk2fQ.-CD8qe8MyXzo4w5Ob3FgRV0cBDHjQyg4c-j2Pl2Ynb0
+
+{
+    "name": "zcc",
+    "age": 26
 }
 
 ###登陆
 POST http://127.0.0.1:8080/api/login/  HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
-username=15631177345&password=zxcvbnmzx
+username=dassssdz&password=zxcvbnmzx
 
 
 ###文件上传
