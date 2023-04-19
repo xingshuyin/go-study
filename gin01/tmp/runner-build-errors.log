@@ -1,2 +1,2 @@
 # project/routers
-routers\router_path.go:6:2: "reflect" imported and not used
+routers\router_path.go:72:16: cannot use model_type.Field(i) (value of type reflect.StructField) as string value in assignment

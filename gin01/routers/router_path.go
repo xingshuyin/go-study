@@ -62,9 +62,16 @@ type ModelType interface {
 type ModelList[T ModelType] []T
 
 // RESTFUL路由
-func Path[T ModelType](e *gin.RouterGroup, base_url string, _ T) {
+func Path[T ModelType](e *gin.RouterGroup, base_url string, model_example T) {
 	e.GET(fmt.Sprintf("/%s/", base_url), Permission, func(ctx *gin.Context) {
-		// filter := T{}
+		model_type := reflect.TypeOf(model_example)
+		numfield := model_type.NumField()
+		fmt.Println("model_type", model_type, numfield, reflect.TypeOf(numfield))
+		var fields = make([]string, numfield)
+		for i := 0; i < numfield; i++ {
+			fields[i] = model_type.Field(i).Name
+		}
+		fmt.Println(fields)
 		page, err := strconv.ParseInt(ctx.Query("page"), 10, 64)
 		if err != nil {
 			fmt.Println("err", err)
